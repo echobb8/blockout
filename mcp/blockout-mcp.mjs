@@ -18,14 +18,14 @@ import { homedir } from 'node:os'
 function configDir() {
   if (process.env.BLOCKOUT_CONFIG_DIR?.trim()) return process.env.BLOCKOUT_CONFIG_DIR.trim()
   if (process.platform === 'win32') {
-    const namespace = process.env.BLOCKOUT_CONFIG_NAMESPACE || 'blockout'
+    const namespace = process.env.BLOCKOUT_CONFIG_NAMESPACE || 'blockout-kids-3d'
     const segments = namespace.split(/[\\/]+/).filter((part) => part && part !== '.' && part !== '..')
     return join(
       process.env.APPDATA || join(homedir(), 'AppData', 'Roaming'),
-      ...(segments.length > 0 ? segments : ['blockout'])
+      ...(segments.length > 0 ? segments : ['blockout-kids-3d'])
     )
   }
-  return join(homedir(), '.config', 'blockout')
+  return join(homedir(), '.config', 'blockout-kids-3d')
 }
 
 const DISCOVERY_FILES = process.env.BLOCKOUT_CONFIG_DIR?.trim()
@@ -33,7 +33,7 @@ const DISCOVERY_FILES = process.env.BLOCKOUT_CONFIG_DIR?.trim()
   : [...new Set([
       join(configDir(), 'control.json'),
       // Legacy descriptor location; descriptors without protocolVersion remain valid.
-      join(homedir(), '.config', 'blockout', 'control.json')
+      join(homedir(), '.config', 'blockout-kids-3d', 'control.json')
     ])]
 const PROTOCOL_VERSION = '2024-11-05'
 

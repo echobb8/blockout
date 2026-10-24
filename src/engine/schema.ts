@@ -1,3 +1,4 @@
+import { defaultProduction } from './production'
 // Modified for cross-platform Windows support in 2026; see MODIFICATIONS.md.
 /**
  * Document creation, validation, and git-friendly serialization.
@@ -39,6 +40,7 @@ export function createScene(number: number): Scene {
   const scene: Scene = {
     id: newId('scene'),
     name: `Scene ${number}`,
+    production: defaultProduction(),
     number,
     environment: { lighting: 'day', sunAzimuth: 0.8, sunElevation: 0.9, fog: 0 },
     entities: [],

@@ -1,7 +1,7 @@
 {
-  "name": "blockout",
+  "name": "blockout-kids-3d",
   "version": "5.1.1",
-  "description": "Desktop previs tool for AI-native filmmaking — stage scenes, choreograph camera & character blocking with marks, export motion-reference packages for AI video generators.",
+  "description": "Desktop previs tool for AI-native filmmaking \u2014 stage scenes, choreograph camera & character blocking with marks, export motion-reference packages for AI video generators.",
   "main": "out/main/index.js",
   "author": "Sam Wasserman",
   "license": "Apache-2.0",
@@ -55,5 +55,6 @@
     "typescript": "^5.7.2",
     "vite": "^8.1.4",
     "vitest": "^4.1.10"
-  }
+  },
+  "productName": "Blockout Kids 3D"
 }

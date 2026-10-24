@@ -6,10 +6,10 @@ declare const __BLOCKOUT_MAINTAINER_CREDIT__: string
 export const DISTRIBUTION = Object.freeze({
   appId: typeof __BLOCKOUT_APP_ID__ === 'string'
     ? __BLOCKOUT_APP_ID__
-    : 'com.wassermanproductions.blockout',
+    : 'com.wassermanproductions.blockout.kids3d',
   windowsConfigNamespace: typeof __BLOCKOUT_WINDOWS_CONFIG_NAMESPACE__ === 'string'
     ? __BLOCKOUT_WINDOWS_CONFIG_NAMESPACE__
-    : 'blockout',
+    : 'blockout-kids-3d',
   maintainerCredit: typeof __BLOCKOUT_MAINTAINER_CREDIT__ === 'string'
     ? __BLOCKOUT_MAINTAINER_CREDIT__
     : ''

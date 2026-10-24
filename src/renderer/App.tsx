@@ -1,3 +1,4 @@
+import { ProductionPanel } from './panels/ProductionPanel'
 // Modified for cross-platform Windows support in 2026; see MODIFICATIONS.md.
 /**
  * App shell: welcome screen, titlebar with the three-mode switch, the
@@ -206,6 +207,13 @@ function useKeyboard(): void {
 }
 
 export function App(): JSX.Element {
+  const activeScene = useStore((s) => s.scene())
+  const setProduction = (production: import('../engine/production').ProductionSettings): void => {
+    useStore.getState().mutate('Update production settings', (doc) => {
+      const scene = doc.scenes.find((item) => item.id === useStore.getState().sceneId)
+      if (scene) scene.production = production
+    })
+  }
   const doc = useStore((s) => s.doc)
   const mode = useStore((s) => s.mode)
   const setMode = useStore((s) => s.setMode)
@@ -240,6 +248,7 @@ export function App(): JSX.Element {
   return (
     <div className={`app ${PLATFORM_CLASS}`}>
       <div className="titlebar">
+        {activeScene && <ProductionPanel value={activeScene.production} onChange={setProduction} />}
         <span className="app-name">BLOCKOUT</span>
         <span style={{ color: 'var(--text-faint)', fontSize: 12 }}>
           {doc.name}

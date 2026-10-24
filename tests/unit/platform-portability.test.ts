@@ -7,9 +7,9 @@ import { ffmpegConcatEntry, normalizeProjectRelativePath } from '../../src/share
 import { platformFfmpegCandidates, terminateProcessTree } from '../../src/main/ffmpeg'
 
 describe('platform config paths', () => {
-  it('preserves the historical macOS location', () => {
+  it('isolates the edition macOS location', () => {
     expect(resolveConfigDir({ platform: 'darwin', env: {}, homeDir: '/Users/test' }))
-      .toBe('/Users/test/.config/blockout')
+      .toBe('/Users/test/.config/blockout-kids-3d')
   })
 
   it('uses APPDATA on Windows and supports an explicit automation override', () => {
@@ -17,7 +17,7 @@ describe('platform config paths', () => {
       platform: 'win32',
       env: { APPDATA: 'C:\\Users\\test\\AppData\\Roaming' },
       homeDir: 'C:\\Users\\test'
-    })).toBe('C:\\Users\\test\\AppData\\Roaming\\blockout\\control.json')
+    })).toBe('C:\\Users\\test\\AppData\\Roaming\\blockout-kids-3d\\control.json')
     expect(resolveConfigDir({
       platform: 'win32',
       env: { BLOCKOUT_CONFIG_DIR: 'D:\\portable\\config' },

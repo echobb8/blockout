@@ -1,3 +1,4 @@
+import { productionDirection, productionReview } from '@engine/production'
 // Modified for cross-platform Windows support in 2026; see MODIFICATIONS.md.
 /**
  * The Deliver pipeline. Exports are deterministic: the timeline is stepped
@@ -333,6 +334,7 @@ export async function exportShot(opts: ExportOptions): Promise<ExportResult> {
       await canvasPng(canvas)
     )
 
+    await window.blockout.exportWriteFile(`${pkg}/production.md`, productionDirection(scene.production) + '\n\n## Manual review\n\n' + productionReview(scene.production).map((item) => `- [ ] ${item}`).join('\n'))
     // --- Prompt, metadata, ComfyUI workflow
     await window.blockout.exportWriteFile(`${pkg}/prompt.txt`, generatePrompt(scene, shot, profile) + '\n')
     await window.blockout.exportWriteFile(`${pkg}/metadata.json`, buildMetadata(scene, shot, profile))

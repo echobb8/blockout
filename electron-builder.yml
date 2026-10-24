@@ -1,6 +1,6 @@
 # Modified for cross-platform Windows support in 2026; see MODIFICATIONS.md.
-appId: com.wassermanproductions.blockout
-productName: Blockout
+appId: com.wassermanproductions.blockout.kids3d
+productName: Blockout Kids 3D
 # Package scripts run redistribution audits before electron-builder. Windows
 # uses the pinned BtbN GPL pair; macOS builds the pinned GPL pair from source.
 directories:

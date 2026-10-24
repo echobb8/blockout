@@ -1,3 +1,4 @@
+import type { ProductionSettings } from './production'
 /**
  * Blockout document model.
  *
@@ -259,6 +260,7 @@ export interface ScanRef {
 }
 
 export interface Scene {
+  production?: ProductionSettings
   id: string
   name: string
   number: number

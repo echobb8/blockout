@@ -1,3 +1,4 @@
+import { normalizeProduction } from './production'
 /**
  * Prompt generation, v5: a SHORT, paste-ready prompt. The reference video
  * carries all the choreography — the prompt's job is only to say "use this
@@ -25,7 +26,13 @@ const LIGHTING_WORDS: Record<LightingPresetId, string> = {
 }
 
 export function generatePrompt(scene: Scene, shot: Shot, profile: GeneratorProfile): string {
-  const lines: string[] = []
+  const production = normalizeProduction(scene.production)
+  const look = production.edition === 'kids-3d'
+    ? 'Original stylized 3D animation for ages 5–8: consistent rounded characters, tactile materials, soft light and gentle readable action.'
+    : production.edition === 'biblical-period'
+      ? `Realistic biblical-period cinema; ${production.era || 'period to be selected'}, ${production.region || 'region to be selected'}. ${production.storyMode === 'scripture' ? 'Scripture adaptation' : 'Original historical fiction'}.`
+      : ''
+  const lines: string[] = look ? [look] : []
   const marks = [...shot.camera.marks].sort((a, b) => a.time - b.time)
   const lens = Math.round(marks[0]?.focalLength ?? 35)
 
@@ -62,7 +69,7 @@ export function generatePrompt(scene: Scene, shot: Shot, profile: GeneratorProfi
   // motion-reference directive; image-only profiles keep their own clause.
   if (profile.refModes.includes('referenceVideo')) {
     lines.push(
-      'Use the attached video strictly as a motion reference: match the character blocking and movement, and the camera blocking, movement, and tracking, exactly as shown. The grey figures are placeholders — replace them with the real subjects and world while keeping every move the same.'
+      'Use the attached video strictly as a motion reference: match the character blocking and movement, and the camera blocking, movement, and tracking, exactly as shown. The grey figures are placeholders — replace them with the production subjects and world while keeping every move the same.'
     )
   } else {
     lines.push(profile.adherenceClause)
