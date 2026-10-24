@@ -1,5 +1,5 @@
 {
-  "name": "blockout-kids-3d",
+  "name": "blockout-biblical-period",
   "version": "5.1.1",
   "description": "Desktop previs tool for AI-native filmmaking \u2014 stage scenes, choreograph camera & character blocking with marks, export motion-reference packages for AI video generators.",
   "main": "out/main/index.js",
@@ -56,5 +56,5 @@
     "vite": "^8.1.4",
     "vitest": "^4.1.10"
   },
-  "productName": "Blockout Kids 3D"
+  "productName": "Blockout Biblical Cinema"
 }

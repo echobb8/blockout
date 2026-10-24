@@ -28,7 +28,7 @@ export function resolveConfigDir(options: ConfigPathOptions = {}): string {
     const segments = namespace.split(/[\\/]+/).filter((part) => part && part !== '.' && part !== '..')
     return win32.join(appData, ...(segments.length > 0 ? segments : ['blockout']))
   }
-  return posix.join(home, '.config', 'blockout-kids-3d')
+  return posix.join(home, '.config', 'blockout-biblical-period')
 }
 
 export function resolveConfigPath(name: string, options: ConfigPathOptions = {}): string {

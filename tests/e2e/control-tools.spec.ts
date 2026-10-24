@@ -69,7 +69,7 @@ test.beforeAll(async () => {
   await expect(page.locator('.mode-switch')).toBeVisible()
 
   const { readFileSync } = await import('fs')
-  const discoveryFile = join(homedir(), '.config', 'blockout-kids-3d', 'control.json')
+  const discoveryFile = join(homedir(), '.config', 'blockout-biblical-period', 'control.json')
   expect(existsSync(discoveryFile)).toBe(true)
   ;({ port, token } = JSON.parse(readFileSync(discoveryFile, 'utf-8')) as { port: number; token: string })
 })

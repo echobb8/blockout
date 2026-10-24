@@ -5,10 +5,10 @@ import { resolve } from 'path'
 
 const distributionDefines = {
   __BLOCKOUT_APP_ID__: JSON.stringify(
-    process.env.BLOCKOUT_APP_ID || 'com.wassermanproductions.blockout.kids3d'
+    process.env.BLOCKOUT_APP_ID || 'com.wassermanproductions.blockout.biblical'
   ),
   __BLOCKOUT_WINDOWS_CONFIG_NAMESPACE__: JSON.stringify(
-    process.env.BLOCKOUT_WINDOWS_CONFIG_NAMESPACE || 'blockout-kids-3d'
+    process.env.BLOCKOUT_WINDOWS_CONFIG_NAMESPACE || 'blockout-biblical-period'
   ),
   __BLOCKOUT_MAINTAINER_CREDIT__: JSON.stringify(
     process.env.BLOCKOUT_MAINTAINER_CREDIT || ''
